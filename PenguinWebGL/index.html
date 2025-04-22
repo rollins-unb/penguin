@@ -29,9 +29,11 @@
       
       // Sends data from Flutter to Unity
       function sendToUnity(message) {
+      	console.log("Sent from flutter...");
         SendMessage('PenguinGameController', 'OnMessageReceived', message);
       }
       function sendToUnityAlt(message) {
+      	console.log("Sent from flutter...");
         SendMessage('PenguinGameController', 'OnMessageReceivedAlt', message);
       }
       let dataToFlutter = "";
