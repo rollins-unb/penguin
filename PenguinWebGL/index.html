@@ -32,6 +32,11 @@
         SendMessage('PenguinGameController', 'OnMessageReceived', message);
       }
       let dataToFlutter = "";
+      var gameState = {
+        score: 42,
+        player: "Penguin",
+        level: 3
+      };
       // Sends data from Unity to Flutter
       window.CallFlutter = function(message) {
         //if (window.flutter_inappwebview) {
