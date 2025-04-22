@@ -31,11 +31,19 @@
       function sendToUnity(message) {
         SendMessage('PenguinGameController', 'OnMessageReceived', message);
       }
+      function sendToUnityAlt(message) {
+        SendMessage('PenguinGameController', 'OnMessageReceivedAlt', message);
+      }
       let dataToFlutter = "";
       var gameState = {
         score: 42,
         player: "Penguin",
         level: 3
+      };
+      window.CallFlutterAlt = function(message) {
+        	console.log("Sending message: "); 
+        	console.log(message); 
+        	dataToFlutter = message;
       };
       // Sends data from Unity to Flutter
       window.CallFlutter = function(message) {
