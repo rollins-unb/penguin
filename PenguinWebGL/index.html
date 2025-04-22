@@ -23,19 +23,27 @@
 
         document.body.style.textAlign = "left";
       }
+      // The below portion is ESSENTIAL. Copy if we make a different template
+      // {{
+      // Custom JS for Flutter ↔ Unity communication
       
-       // Custom JS for Flutter ↔ Unity communication
+      // Sends data from Flutter to Unity
       function sendToUnity(message) {
-        SendMessage('GameController', 'OnMessageReceived', message);
+        SendMessage('PenguinGameController', 'OnMessageReceived', message);
       }
-
+      
+      // Sends data from Unity to Flutter
       window.CallFlutter = function(message) {
         if (window.flutter_inappwebview) {
+        	console.log("Sending message: "); 
+        	console.log(message); 
           window.flutter_inappwebview.callHandler('fromUnity', message);
         } else {
           console.warn("flutter_inappwebview not found");
         }
       };
+      // }}
+      // The above portion is ESSENTIAL
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
