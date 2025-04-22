@@ -23,6 +23,19 @@
 
         document.body.style.textAlign = "left";
       }
+      
+       // Custom JS for Flutter ↔ Unity communication
+      function sendToUnity(message) {
+        SendMessage('GameController', 'OnMessageReceived', message);
+      }
+
+      window.CallFlutter = function(message) {
+        if (window.flutter_inappwebview) {
+          window.flutter_inappwebview.callHandler('fromUnity', message);
+        } else {
+          console.warn("flutter_inappwebview not found");
+        }
+      };
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
