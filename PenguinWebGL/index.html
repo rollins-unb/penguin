@@ -31,16 +31,17 @@
       function sendToUnity(message) {
         SendMessage('PenguinGameController', 'OnMessageReceived', message);
       }
-      
+      let dataToFlutter = "";
       // Sends data from Unity to Flutter
       window.CallFlutter = function(message) {
-        if (window.flutter_inappwebview) {
+        //if (window.flutter_inappwebview) {
         	console.log("Sending message: "); 
         	console.log(message); 
-          window.flutter_inappwebview.callHandler('fromUnity', message);
-        } else {
-          console.warn("flutter_inappwebview not found");
-        }
+        	dataToFlutter = message;
+          //window.flutter_inappwebview.callHandler('fromUnity', message);
+        //} else {
+          //console.warn("flutter_inappwebview not found");
+        //}
       };
       // }}
       // The above portion is ESSENTIAL
