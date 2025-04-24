@@ -31,12 +31,18 @@
       function sendToUnity(message) {
       	var s = "Sent from flutter: " + message;
       	console.log(s);
-        SendMessage('PenguinGameController', 'OnMessageReceived', message);
+      	if (typeof SendMessage === 'function') {
+        	//SendMessage('PenguinGameController', 'OnMessageReceived', message);
+        	unityInstance.SendMessage('PenguinGameController', 'OnMessageReceived', message);
+        }
       }
       function sendToUnityAlt(message) {
       	var s = "Sent from flutter: " + message;
       	console.log(s);
-        SendMessage('PenguinGameController', 'OnMessageReceivedAlt', message);
+      	if (typeof SendMessage === 'function') {
+        	//SendMessage('PenguinGameController', 'OnMessageReceivedAlt', message);
+        	unityInstance.SendMessage('PenguinGameController', 'OnMessageReceived', message);
+        }
       }
       let dataToFlutter = "";
       var gameState = {
