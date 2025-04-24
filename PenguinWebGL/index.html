@@ -26,15 +26,13 @@
       // The below portion is ESSENTIAL. Copy if we make a different template
       // {{
       // Custom JS for Flutter ↔ Unity communication
-      //var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json");
-      //window.unityInstance = unityInstance;
-      //console.log("loaded unity instance");
+      
       // Sends data from Flutter to Unity
       function sendToUnity(message) {
       	var s = "Sent from flutter: " + message;
       	console.log(s);
       	if (typeof SendMessage === 'function') {
-        	//SendMessage('PenguinGameController', 'OnMessageReceived', message);
+        	SendMessage('PenguinGameController', 'OnMessageReceived', message);
         	unityInstance.SendMessage('PenguinGameController', 'OnMessageReceived', message);
         }
       }
@@ -42,8 +40,7 @@
       	var s = "Sent from flutter: " + message;
       	console.log(s);
       	if (typeof SendMessage === 'function') {
-        	//SendMessage('PenguinGameController', 'OnMessageReceivedAlt', message);
-        	unityInstance.SendMessage('PenguinGameController', 'OnMessageReceived', message);
+        	SendMessage('PenguinGameController', 'OnMessageReceivedAlt', message);
         }
       }
       let dataToFlutter = "";
